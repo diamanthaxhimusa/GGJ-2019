@@ -22,6 +22,9 @@ public class ObstacleScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

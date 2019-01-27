@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4563235699854842}
   - component: {fileID: 212143163767452254}
   m_Layer: 0
-  m_Name: IMG_0683_1
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,8 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4323167108746228}
   - component: {fileID: 212330570167886818}
+  - component: {fileID: 7883619817889705806}
   m_Layer: 0
-  m_Name: IMG_0683_3
+  m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,6 +159,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &7883619817889705806
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241765703906484}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.72838867, y: -1.559122}
+  m_Size: {x: 0.3575308, y: 3.0323353}
+  m_Direction: 0
 --- !u!1 &1464993247278644
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +186,7 @@ GameObject:
   - component: {fileID: 4962299320359050}
   - component: {fileID: 212458422928971952}
   m_Layer: 0
-  m_Name: IMG_0683_5
+  m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +265,7 @@ GameObject:
   - component: {fileID: 4452198464336604}
   - component: {fileID: 212910555839727234}
   - component: {fileID: 50357577923565064}
-  - component: {fileID: 114788713395777010}
+  - component: {fileID: 1873712533431771999}
   - component: {fileID: 95586982753128968}
   - component: {fileID: 8635175130779796278}
   m_Layer: 0
@@ -347,7 +364,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114788713395777010
+--- !u!114 &1873712533431771999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,16 +373,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1643229530189996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c38ce5c0a7f164d917300f45dd8233, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba6b04884667a24b83b2213951bd959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  jumpPower: 0
-  backwardForce: {x: 0, y: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  m_centerY: 1.5
+  speed: 4
 --- !u!95 &95586982753128968
 Animator:
   serializedVersion: 3
@@ -412,7 +423,7 @@ GameObject:
   - component: {fileID: 4422779101785594}
   - component: {fileID: 212046578829642236}
   m_Layer: 0
-  m_Name: IMG_0683_4
+  m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681765940597432}
   m_LocalRotation: {x: 0.0000022433405, y: -0.0002846151, z: 0.007881782, w: 0.9999689}
-  m_LocalPosition: {x: -0.85, y: -0.06, z: -1}
+  m_LocalPosition: {x: -0.978, y: -0.06, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4452198464336604}
@@ -491,7 +502,7 @@ GameObject:
   - component: {fileID: 4282090631894614}
   - component: {fileID: 212439504391170384}
   m_Layer: 0
-  m_Name: IMG_0683_0
+  m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -28,44 +28,29 @@ public class PlayerControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0f);
-        if (old_pos < transform.position.x)
+        float move = Input.GetAxis("Horizontal");
+        Vector2 moveInput = new Vector2(move, 0f);
+        Animator animator = this.gameObject.GetComponent<Animator>();
+        animator.SetFloat("velocityX", move);
+        if (Mathf.Abs(move) > 0)
         {
-            isMovingRight = true;
-            isMovingLeft = false;
-            // this.gameObject.transform.localScale = new Vector2(1f,0);
-            this.gameObject.GetComponent<Animator>().Play("Player_Walk");
-        }
-        if (old_pos > transform.position.x)
-        {
-            isMovingRight = false;
-            isMovingLeft = true;
-            // this.gameObject.transform.localScale = new Vector2(-1f,0);
-            this.gameObject.GetComponent<Animator>().Play("PlayerWalkingLeft");
-        }
-        if (!isMovingLeft && !isMovingRight)
-        {
-            isMovingLeft = false;
-            isMovingRight = false;
-            isAttacking = false;
-            this.gameObject.GetComponent<Animator>().Play("StopPlayer");
+            Quaternion rot = transform.rotation;
+            transform.rotation = Quaternion.Euler(rot.x, Mathf.Sign(move) == 1 ? 0 : 180, rot.z);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.gameObject.GetComponent<Animator>().Play("Hit");
+            animator.Play("Hit");
             isMovingLeft = false;
             isMovingRight = false;
             isAttacking = true;
-
         }
 
 
         old_pos = transform.position.x;
 
-        animator.SetBool("isWalkingRight", isMovingRight);
-        animator.SetBool("isWalkingLeft", isMovingLeft);
-        animator.SetBool("isAttacking", isAttacking);
+        // animator.SetBool("isWalkingRight", isMovingRight);
+        // animator.SetBool("isWalkingLeft", isMovingLeft);
+        // animator.SetBool("isAttacking", isAttacking);
 
         moveVelocity = moveInput.normalized * speed;
         if (transform.position.x <= -15f)
