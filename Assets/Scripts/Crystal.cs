@@ -23,6 +23,7 @@ public class Crystal : MonoBehaviour
     }
 
     void PickUp() {
+        GameManager.Instance.updateLightSize();
         Destroy(gameObject);
     }
 }

@@ -65,7 +65,36 @@ public class Singleton<T> : MonoBehaviour where T : Object
 }
 public sealed class GameManager : Singleton<GameManager>
 {
-  [SerializeField]private int lights = 5;
+  static GameManager instance;
+  public GameObject lightOfCrystals;
+  public bool isActive;
+  [SerializeField]public int lights;
+  protected override void  Awake() {
+      base.Awake();
+  }
+  void Start()
+  {
+    if (instance != null)
+    {
+      isActive = false;
+      Destroy(gameObject);
+    }
+    else
+    {
+      instance = this;
+      lights = 5;
+      isActive = true;
+      DontDestroyOnLoad(this);
+    }
+  }
 
-  public int Lights { get => lights; set => lights = value; }
+  public void updateLightSize(){
+    lights++;
+    if (lightOfCrystals.activeSelf) {
+      float scaleX = lightOfCrystals.transform.localScale.x;
+      lightOfCrystals.transform.localScale = new Vector3(scaleX + 0.3f,scaleX + 0.3f, 1f);
+    } else {
+      print("null");
+    }
+  }
 }

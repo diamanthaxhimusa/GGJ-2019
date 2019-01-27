@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 			jump = true;
 		}
 		// Move our character
-		controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+		// controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
 		jump = false;
 
 	}
